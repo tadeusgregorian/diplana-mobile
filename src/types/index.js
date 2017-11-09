@@ -147,3 +147,5 @@ export type DayNote = {
   note: string,
   branch?: string, // its branch? because this prop gets appended before saving to DB
 }
+
+export type PlanMode = 'PERSONAL' | 'TEAM'

@@ -2,6 +2,7 @@
 import { combineReducers } from 'redux'
 import { simpleReducer } from '../reducerHelpers'
 import { getRealCurrentWeekID } from 'helpers/roster'
+import type { PlanMode, Day } from 'types/index'
 
 const currentBranch = simpleReducer({
   default: localStorage.currentBranch || 'b001',
@@ -11,34 +12,28 @@ const currentBranch = simpleReducer({
 const currentWeekID = simpleReducer({
   default: getRealCurrentWeekID(),
   SET_CURRENT_WEEK_ID: 'PAYLOAD',
-  ENTER_TEMPLATE_MODE: 'PAYLOAD',
-  LEAVE_TEMPLATE_MODE: getRealCurrentWeekID(),
 })
 
-
-const templateMode = simpleReducer({
-  default: false,
-  ENTER_TEMPLATE_MODE: true,
-  LEAVE_TEMPLATE_MODE: false,
+const currentDay = simpleReducer({
+  default: 'mo',
+  SET_CURRENT_WEEK_ID: 'PAYLOAD',
 })
 
-const extraHoursMode = simpleReducer({
-  default: false,
-  ENTER_EXTRA_HOURS_MODE: true,
-  LEAVE_EXTRA_HOURS_MODE: false,
+const planMode = simpleReducer({
+  default: 'PERSONAL',
+  SET_PLAN_MODE: 'PAYLOAD',
 })
 
 export type Roster = {
+  planMode: PlanMode,
   currentBranch: string,
   currentWeekID: string,
-  currentTemplate: string,
-  templateMode: boolean,
-  extraHoursMode: boolean,
+  currentDay: Day,
 }
 
 export default combineReducers({
+  planMode,
   currentBranch,
   currentWeekID,
-  templateMode,
-  extraHoursMode,
+  currentDay,
 })

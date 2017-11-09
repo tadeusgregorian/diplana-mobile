@@ -9,7 +9,6 @@ export default class Login extends PureComponent {
 	constructor() {
 		super()
 		this.state = { username: '', password: '', loading: false}
-		this.requestPWLink = this.requestPWLink.bind(this)
 	}
 
 	tryToLogin = () => {

@@ -27,11 +27,9 @@ class Container extends PureComponent {
     return (
       <Router>
         <fb className="Container_Main">
-          <fb className='Container_Main_Inside'>
-            <Route path='/'   exact render={() => loggedIn ? <Redirect to="/app/" /> : <Redirect to="/login" /> } />
-            <Route path='/login'    render={() => loggedIn ? <Redirect to="/app/" /> : <Login /> } />
-            <Route path='/app'      render={() => loggedIn ? <App /> : <Redirect to="/login" /> } />
-          </fb>
+          <Route path='/'   exact render={() => loggedIn ? <Redirect to="/app/" /> : <Redirect to="/login" /> } />
+          <Route path='/login'    render={() => loggedIn ? <Redirect to="/app/" /> : <Login /> } />
+          <Route path='/app'      render={() => loggedIn ? <App /> : <Redirect to="/login" /> } />
         </fb>
       </Router>
     )
