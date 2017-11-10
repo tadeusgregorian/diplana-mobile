@@ -149,3 +149,4 @@ export type DayNote = {
 }
 
 export type PlanMode = 'PERSONAL' | 'TEAM'
+export type SideNav = 'OPTIONS' | 'BRANCH_PICK'

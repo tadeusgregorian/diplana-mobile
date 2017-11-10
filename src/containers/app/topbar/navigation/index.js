@@ -6,18 +6,23 @@ import './styles.css'
 
 type Props = {
   planMode: PlanMode,
+  branchName: string,
   setPlanMode: (PlanMode)=>any,
+  openBranchPick: ()=>any,
+  openOptionsBar: ()=>any,
 }
 
 export default (props: Props) => {
-  const { planMode, setPlanMode } = props
+  const { planMode, setPlanMode, openBranchPick, openOptionsBar, branchName } = props
+  const teamMode = planMode === 'TEAM'
+  const persMode = planMode === 'PERSONAL'
 
   return(
     <fb className="navigationMain">
-      {/*  the className js-menu-show is neccessary: gets picked up by navAnimator */}
-      <fb className='js-menu-show openSideNavBtn icon icon-th-menu'></fb>
+      <fb className='js-menu-show openSideNavBtn icon icon-th-menu' onClick={openOptionsBar}></fb>
       <PlanModeSelector  {...{ planMode, setPlanMode }} />
-      <fb className='branch'>Stresemann-Apotheke</fb>
+      { teamMode && <fb className='branch' onClick={openBranchPick} >{branchName}</fb> }
+      { persMode && <fb className='myPlan'> Mein Dienstplan </fb> }
     </fb>
   )
 }

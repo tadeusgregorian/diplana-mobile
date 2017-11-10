@@ -122,6 +122,9 @@ fb,
 span {
   margin: 0; }
 
+fb {
+  display: flex; }
+
 html {
   height: 100%;
   font-family: "Roboto", sans-serif;

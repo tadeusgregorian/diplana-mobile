@@ -9,8 +9,10 @@ type Props = {
 export default (props: Props) => {
 
   return(
-    <fb className="branchSelectMain">
-
+    <fb className="navBarOptionsMain">
+      <ul className="side-nav__content">
+        <li>logout</li>
+      </ul>
     </fb>
   )
 }

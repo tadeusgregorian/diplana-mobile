@@ -1,7 +1,5 @@
 import firebase from 'firebase'
 import { trackFBListeners } from './firebaseHelpers'
-import { checkClientDate } from '../clientDateCheck'
-
 
 export const setAuthStateListener = (initializor) => {
   return (dispatch, getState) => {
@@ -22,7 +20,6 @@ export const setAuthStateListener = (initializor) => {
           dispatch({type: 'SET_CURRENT_USER_ID',  payload: snap.val().userID})
 
           window.accountID = snap.val().account // this is little hacky.. so helper function can have access to accountID without getState()
-          checkClientDate(dispatch)
           initializor()
         })
     })

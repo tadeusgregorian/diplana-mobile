@@ -1,0 +1,18 @@
+.topbarWeekSelectMain {
+  width: 100%; }
+  .topbarWeekSelectMain > * {
+    align-self: stretch;
+    align-items: center;
+    justify-content: center; }
+  .topbarWeekSelectMain .stepBtn {
+    width: 60px;
+    font-size: 22px; }
+  .topbarWeekSelectMain .weekDisplay {
+    flex: 1 1 auto;
+    border-right: 1px solid lightgrey;
+    border-left: 1px solid lightgrey; }
+    .topbarWeekSelectMain .weekDisplay .week {
+      font-weight: 600;
+      margin-right: 10px; }
+    .topbarWeekSelectMain .weekDisplay .dates {
+      color: grey; }

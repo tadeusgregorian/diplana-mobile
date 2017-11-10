@@ -2,9 +2,10 @@
 import Detabinator from './detabinator'
 
 export default class NavAnimator {
-  constructor () {
-    this.showButtonEl = document.querySelector('.js-menu-show');
-    this.hideButtonEl = document.querySelector('.js-menu-hide');
+  constructor (onClose) {
+    this.onClose = onClose
+    //this.showButtonEl = document.querySelector('.js-menu-show');
+    //this.hideButtonEl = document.querySelector('.js-menu-hide');
     this.sideNavEl = document.querySelector('.js-side-nav');
     this.sideNavContainerEl = document.querySelector('.js-side-nav-container');
     // Control whether the container's children can be focused
@@ -13,8 +14,8 @@ export default class NavAnimator {
     this.detabinator.inert = true;
 
     this.showSideNav = this.showSideNav.bind(this);
-    this.hideSideNav = this.hideSideNav.bind(this);
-    this.blockClicks = this.blockClicks.bind(this);
+    //this.hideSideNav = this.hideSideNav.bind(this);
+    //this.blockClicks = this.blockClicks.bind(this);
     this.onTouchStart = this.onTouchStart.bind(this);
     this.onTouchMove = this.onTouchMove.bind(this);
     this.onTouchEnd = this.onTouchEnd.bind(this);
@@ -49,10 +50,10 @@ export default class NavAnimator {
   }
 
   addEventListeners () {
-    this.showButtonEl.addEventListener('click', this.showSideNav);
-    this.hideButtonEl.addEventListener('click', this.hideSideNav);
-    this.sideNavEl.addEventListener('click', this.hideSideNav);
-    this.sideNavContainerEl.addEventListener('click', this.blockClicks);
+    //this.showButtonEl.addEventListener('click', this.showSideNav);
+    //this.hideButtonEl.addEventListener('click', this.onClose());
+    //this.sideNavEl.addEventListener('click', this.hideSideNav);
+    //this.sideNavContainerEl.addEventListener('click', this.blockClicks);
 
     this.sideNavEl.addEventListener('touchstart', this.onTouchStart, this.applyPassive());
     this.sideNavEl.addEventListener('touchmove', this.onTouchMove, this.applyPassive());
@@ -87,7 +88,7 @@ export default class NavAnimator {
     this.sideNavContainerEl.style.transform = '';
 
     if (translateX < 0) {
-      this.hideSideNav();
+      this.onClose();
     }
   }
 
@@ -97,13 +98,14 @@ export default class NavAnimator {
 
     requestAnimationFrame(this.update);
 
+
     const translateX = Math.min(0, this.currentX - this.startX);
     this.sideNavContainerEl.style.transform = `translateX(${translateX}px)`;
   }
 
-  blockClicks (evt) {
-    evt.stopPropagation();
-  }
+  // blockClicks (evt) {
+  //   evt.stopPropagation();
+  // }
 
   onTransitionEnd (evt) {
     if (evt.propertyName != this.transitionEndProperty && evt.elapsedTime!= this.transitionEndTime){
