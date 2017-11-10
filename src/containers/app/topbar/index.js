@@ -2,12 +2,12 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import type { Connector } from 'react-redux'
-import { setPlanMode, changeCurrentWeekID } from 'actions/ui/roster'
+import { setPlanMode, changeCurrentWeekID, changeCurrentDay } from 'actions/ui/roster'
 import { openSideNav } from 'actions/ui/index'
 import DateSelect from './dateSelect'
 import Navigation from './navigation'
 
-import type { Store, PlanMode, SideNav, Branch } from 'types/index'
+import type { Store, PlanMode, SideNav, Branch, Day } from 'types/index'
 import './styles.css'
 
 type Props = {
@@ -15,15 +15,26 @@ type Props = {
   branches: Array<Branch>,
   currentBranch: string,
   currentWeekID: string,
+  currentDay: Day,
   setPlanMode: (PlanMode)=>any,
   changeCurrentWeekID: (string)=>any,
+  changeCurrentDay: (Day)=>any,
   openSideNav: (SideNav)=>any,
 }
 
 class Topbar extends PureComponent {
 
   render(){
-    const { planMode, setPlanMode, openSideNav, branches, currentBranch, currentWeekID, changeCurrentWeekID } = this.props
+    const {
+      planMode,
+      setPlanMode,
+      openSideNav,
+      branches,
+      currentBranch,
+      currentWeekID,
+      changeCurrentWeekID,
+      currentDay } = this.props
+
     const curBranch: Branch = (branches.find(b => b.id === currentBranch) :any)
     const branchName = curBranch.name
     const openBranchPick = () => openSideNav('BRANCH_PICK')
@@ -32,7 +43,7 @@ class Topbar extends PureComponent {
     return(
       <fb id="topbarMain">
         <Navigation {...{ planMode, setPlanMode, openBranchPick, openOptionsBar, branchName }} />
-        <DateSelect {...{ planMode, currentWeekID, changeCurrentWeekID}} />
+        <DateSelect {...{ planMode, currentWeekID, currentDay, changeCurrentWeekID, changeCurrentDay }} />
       </fb>
     )
   }
@@ -42,12 +53,14 @@ const actionCreators = {
   setPlanMode,
   openSideNav,
   changeCurrentWeekID,
+  changeCurrentDay,
 }
 
 const mapStateToProps = (state: Store) => ({
   planMode: state.ui.roster.planMode,
   branches: state.core.branches,
   currentBranch: state.ui.roster.currentBranch,
+  currentDay: state.ui.roster.currentDay,
   currentWeekID: state.ui.roster.currentWeekID,
 })
 

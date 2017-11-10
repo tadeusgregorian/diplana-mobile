@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import moment from 'moment' // eslint-disable-line no-unused-vars
 import 'moment/locale/de'  // this has to be loaded here ! before configure STORE !!!
-import configureStore from './configs/configureStore'
+import configureStore from './reducers/configureStore'
 import 'styles/main.css';
 import App from 'containers';
 import registerServiceWorker from './registerServiceWorker';

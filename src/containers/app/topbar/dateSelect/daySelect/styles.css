@@ -1,0 +1,19 @@
+.topbarDaySelectMain {
+  width: 100%; }
+  .topbarDaySelectMain > * {
+    align-self: stretch;
+    align-items: center;
+    justify-content: center; }
+  .topbarDaySelectMain .stepBtn {
+    width: 60px;
+    font-size: 22px; }
+  .topbarDaySelectMain .dayDisplay {
+    flex: 1 1 auto;
+    border-right: 1px solid lightgrey;
+    border-left: 1px solid lightgrey; }
+    .topbarDaySelectMain .dayDisplay .date {
+      margin-right: 10px;
+      font-weight: 600;
+      text-transform: uppercase; }
+    .topbarDaySelectMain .dayDisplay .week {
+      color: grey; }

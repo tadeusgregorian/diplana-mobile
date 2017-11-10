@@ -6,6 +6,7 @@ import appDataLoaded from 'selectors/appDataLoaded'
 import type { Store } from 'types/index'
 import Topbar from './topbar'
 import SideNavBar from './sideNavBar'
+import ShiftBoard from './shiftBoard'
 import type { AccountPreferences } from 'types/index'
 import './styles.css'
 
@@ -22,7 +23,7 @@ class App extends PureComponent {
     return(
       <fb id="appMain">
         <Topbar  />
-        <fb className='content'>was</fb>
+        <ShiftBoard />
         <SideNavBar />
       </fb>
     )

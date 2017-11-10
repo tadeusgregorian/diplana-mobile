@@ -2,6 +2,8 @@
 import moment from 'moment'
 import type { Shift, Shifts, MinimalShift, Notes } from 'types/index'
 
+export const weekDays = [ 'mo', 'tu', 'we', 'th', 'fr', 'sa', 'su' ]
+
 export const getRealCurrentWeekID = () :string => {
   const calendarWeek = moment().week()
   const year = moment().year()

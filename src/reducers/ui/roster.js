@@ -1,7 +1,8 @@
 //@flow
+import moment from 'moment'
 import { combineReducers } from 'redux'
 import { simpleReducer } from '../reducerHelpers'
-import { getRealCurrentWeekID } from 'helpers/roster'
+import { getRealCurrentWeekID, weekDays } from 'helpers/roster'
 import type { PlanMode, Day } from 'types/index'
 
 const currentBranch = simpleReducer({
@@ -15,8 +16,8 @@ const currentWeekID = simpleReducer({
 })
 
 const currentDay = simpleReducer({
-  default: 'mo',
-  SET_CURRENT_WEEK_ID: 'PAYLOAD',
+  default: weekDays[moment().weekday()],
+  SET_CURRENT_WEEK_DAY: 'PAYLOAD',
 })
 
 const planMode = simpleReducer({
