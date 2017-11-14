@@ -17,7 +17,7 @@ const currentWeekID = simpleReducer({
 
 const currentDay = simpleReducer({
   default: weekDays[moment().weekday()],
-  SET_CURRENT_WEEK_DAY: 'PAYLOAD',
+  SET_CURRENT_DAY: 'PAYLOAD',
 })
 
 const planMode = simpleReducer({

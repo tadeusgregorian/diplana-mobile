@@ -148,5 +148,18 @@ export type DayNote = {
   branch?: string, // its branch? because this prop gets appended before saving to DB
 }
 
+export type AbsenceType = 'vac' | 'ill' | 'extra'
+
+export type WeekAbsence = { // these get created and fanned out in cloud functions -> are all accepted absences
+  id: string,
+  user: string,
+  type: AbsenceType,
+  workDays?: WorkDays,
+  useAvgHours?: true,
+  avgDailyMins: number,
+  firstWeekDay: number,
+  lastWeekDay: number,
+}
+
 export type PlanMode = 'PERSONAL' | 'TEAM'
 export type SideNav = 'OPTIONS' | 'BRANCH_PICK'

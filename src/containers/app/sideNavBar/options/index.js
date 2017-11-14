@@ -3,16 +3,14 @@ import React from 'react'
 import './styles.css'
 
 type Props = {
-
+  logoutFromFirebase: Function
 }
 
 export default (props: Props) => {
 
   return(
     <fb className="navBarOptionsMain">
-      <ul className="side-nav__content">
-        <li>logout</li>
-      </ul>
+      <fb className='logoutBtn' onClick={props.logoutFromFirebase}>ausloggen</fb>
     </fb>
   )
 }

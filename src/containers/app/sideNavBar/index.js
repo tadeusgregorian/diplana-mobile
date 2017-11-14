@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import type { Connector } from 'react-redux'
 import { changeCurrentBranch } from 'actions/ui/roster'
 import { closeSideNav } from 'actions/ui/index'
+import { logoutFromFirebase } from 'actions/auth'
 import NavAnimator from './navAnimator'
 import Options from './options'
 import BranchPick from './branchPick'
@@ -14,7 +15,7 @@ type ConProps = {
   closeSideNav: Function,
   sideNav: SideNav,
   branches: Array<Branch>,
-  changeCurrentBranch: (string)=>any
+  changeCurrentBranch: (string)=>any,
 }
 
 type Props = ConProps
@@ -57,8 +58,8 @@ class SideNavBar extends PureComponent {
               { options && 'Optionen' }
               { branchPick && 'Standort Wählen' }
             </header>
-            { options    && <Options closeNavBar={this.closeIt} /> }
-            { branchPick && <BranchPick closeNavBar={this.closeIt} {...{ branches, branchPicked }} /> }
+            { options    && <Options    {...{ logoutFromFirebase }} /> }
+            { branchPick && <BranchPick {...{ branches, branchPicked }} /> }
           </nav>
         </aside>
     )

@@ -20,7 +20,12 @@ export const setShiftWeekListener: ThunkAction = () => (dispatch, getState: GetS
     ? db().ref(path).orderByChild('user').equalTo(userID)
     : db().ref(path).orderByChild('branchDay').equalTo(branch + day)
 
-  console.log(branch + day)
-
   createFirebaseListener(dispatch, getState, 'shiftWeek', path, queryRef)
+}
+
+export const setWeeklyAbsencesListener: ThunkAction = () => (dispatch, getState: GetState) => {
+  const weekID = getState().ui.roster.currentWeekID
+  const path   = getFBPath('absencesWeekly', [weekID])
+  createFirebaseListener(dispatch, getState, 'weekAbsences', path)
+
 }

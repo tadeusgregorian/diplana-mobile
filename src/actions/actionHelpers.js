@@ -8,6 +8,7 @@ export type TargetKey =
 | 'shiftWeeks'
 | 'shiftEdits'
 | 'dayNotes'
+| 'absencesWeekly'
 
 // This function holds the Information, where in the FirebaseDB each Node sits
 // If childPaths provided it concats the childPaths to a path-string.
@@ -20,6 +21,7 @@ export const getFBPath	= (target: TargetKey, childPaths?: Array<string>): string
     shiftWeeks: 		  '/roster/shiftWeeks/',
     shiftEdits: 		  '/roster/shiftEdits/',
     dayNotes:         '/roster/dayNotes/',
+    absencesWeekly:   '/absencePlaner/absencesWeekly/',
   }
 
 	const accPath  = 'accounts/' + window.accountID

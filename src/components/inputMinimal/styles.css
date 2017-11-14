@@ -1,6 +1,6 @@
 .inputMinimalMain {
   width: 100%; }
-  .inputMinimalMain input[type=text], .inputMinimalMain [type=password] {
+  .inputMinimalMain input[type=text], .inputMinimalMain [type=email], .inputMinimalMain [type=password] {
     width: 100%;
     padding: 4px 10px;
     box-sizing: border-box;
@@ -14,20 +14,14 @@
     color: #565656;
     height: 36px;
     font-weight: 300;
-    font-size: 14px;
+    font-size: 16px;
     background-repeat: no-repeat;
     background-size: 20px 20px;
     background-position: 96% 50%;
     background-color: 'white'; }
-  .inputMinimalMain input[type=text]::placeholder {
+  .inputMinimalMain input[type=text]::placeholder, .inputMinimalMain [type=email]::placeholder, .inputMinimalMain [type=password]::placeholder {
     color: #a7a7a7; }
-  .inputMinimalMain input[type=password]::placeholder {
-    color: #a7a7a7; }
-  .inputMinimalMain input[type=text]:focus {
-    border: 1px solid #7adaff;
-    box-shadow: none;
-    outline: none; }
-  .inputMinimalMain input[type=password]:focus {
+  .inputMinimalMain input[type=text]:focus, .inputMinimalMain [type=email]:focus, .inputMinimalMain [type=password]:focus {
     border: 1px solid #7adaff;
     box-shadow: none;
     outline: none; }

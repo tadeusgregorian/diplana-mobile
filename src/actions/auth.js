@@ -5,9 +5,5 @@ export function signInWithEmailAndPassword (email, pw) {
 }
 
 export function logoutFromFirebase () {
-  firebase.auth().signOut()
-}
-
-export function sendPasswordResetEmail (email) {
-  firebase.auth().sendPasswordResetEmail(email)
+  return firebase.auth().signOut()
 }

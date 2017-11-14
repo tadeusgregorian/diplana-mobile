@@ -1,7 +1,8 @@
 //@flow
 import React from 'react'
-//import moment from 'moment'
-//import { getNextWeekID, getPrevWeekID } from 'helpers/roster'
+import moment from 'moment'
+import { getNextWeekID, getPrevWeekID } from 'helpers/roster'
+import { getNextWeekDay, getPrevWeekDay } from './localHelpers'
 import { smartWeekToMom } from 'helpers/index'
 import { weekDays } from 'helpers/roster'
 import type { Day } from 'types/index'
@@ -17,19 +18,21 @@ type Props = {
 export default (props: Props) => {
   const { currentWeekID, currentDay } = props
   const mom = smartWeekToMom(currentWeekID)
+  //console.log(moment().week())
   const week = mom.week()
 
   const momDay  = mom.add( weekDays.indexOf(currentDay) , 'days')
   const dateStr = momDay.format('dd DD. MMM').slice(0, -1);
 
   const toPrev = () => {
-    // const prevWeek = getPrevWeekID(currentWeekID)
-    // props.changeCurrentWeekID(prevWeek)
+    console.log(currentDay)
+    currentDay === 'mo' && props.changeCurrentWeekID(getPrevWeekID(currentWeekID))
+    props.changeCurrentDay(getPrevWeekDay(currentDay))
   }
 
   const toNext = () => {
-    // const nextWeek = getNextWeekID(currentWeekID)
-    // props.changeCurrentWeekID(nextWeek)
+    currentDay === 'su' && props.changeCurrentWeekID(getNextWeekID(currentWeekID))
+    props.changeCurrentDay(getNextWeekDay(currentDay))
   }
 
   return(

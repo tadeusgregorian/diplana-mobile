@@ -33,6 +33,7 @@ class Topbar extends PureComponent {
       currentBranch,
       currentWeekID,
       changeCurrentWeekID,
+      changeCurrentDay,
       currentDay } = this.props
 
     const curBranch: Branch = (branches.find(b => b.id === currentBranch) :any)

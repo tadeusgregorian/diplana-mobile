@@ -14,7 +14,10 @@ export default (props: Props) => {
   return(
     <fb className="navBarBranchPickMain">
       {branches.map( b =>
-        <fb className='branchItem' onClick={()=>branchPicked(b.id)} >{b.name}</fb>
+        <fb
+          className='branchItem'
+          key={b.id}
+          onClick={()=>branchPicked(b.id)} >{b.name}</fb>
       )}
     </fb>
   )

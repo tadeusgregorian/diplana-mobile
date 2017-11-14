@@ -7,6 +7,7 @@ import './styles.css'
 
 export default ({
 	name,
+	email,
 	defaultText,
 	password,
 	onInputChange,
@@ -33,11 +34,17 @@ export default ({
 		return styleObj
 	}
 
+	const getType = () => {
+		if(password) return 'password'
+		if(email) return 'email'
+		return 'text'
+	}
+
 	return(
 		<div className='inputMinimalMain'>
 			<input
 				value={value}
-				type={password ? "password" : "text"}
+				type={getType()}
 				name={name}
 				style={getStyle()}
 				placeholder={defaultText}

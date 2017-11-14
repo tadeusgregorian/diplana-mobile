@@ -1,24 +1,12 @@
 .navBarOptionsMain{
   flex-direction: column;
 
-  .side-nav__content {
-    padding-top: 32px;
-    flex: 1;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .side-nav__content li {
-    height: 48px;
-    line-height: 48px;
-    padding: 0 16px;
-    margin: 4px;
-    background: #e2e2e2;
-    border-radius: 2px;
-    color: #2f2f2f;
+  .logoutBtn{
+    background: lightgrey;
+    color: #505050;
+    height: 44px;
+    align-items: center;
+    padding-left: 18px;
+    font-size: 18px;
   }
 }

@@ -1,6 +1,6 @@
 //@flow
 import moment from 'moment'
-import type { Shift, Shifts, MinimalShift, Notes } from 'types/index'
+import type { Shift, MinimalShift, Day } from 'types/index'
 
 export const weekDays = [ 'mo', 'tu', 'we', 'th', 'fr', 'sa', 'su' ]
 

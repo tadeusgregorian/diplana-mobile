@@ -10,8 +10,10 @@ export const changeCurrentBranch: ThunkAction = (branchID: string) => (dispatch,
 export const changeCurrentWeekID = (weekID: string) =>
   ({ type: 'SET_CURRENT_WEEK_ID', payload: weekID })
 
-export const changeCurrentDay = (day: Day) =>
-  ({ type: 'SET_CURRENT_Day', payload: day })
+export const changeCurrentDay = (day: Day) => {
+  console.log('changeDay: ', day);
+  return ({ type: 'SET_CURRENT_DAY', payload: day })
+}
 
 export const setPlanMode = (mode: PlanMode) =>
   ({ type: 'SET_PLAN_MODE', payload: mode })

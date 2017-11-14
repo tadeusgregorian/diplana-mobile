@@ -1,7 +1,8 @@
+//@flow
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
-import { Route, BrowserRouter as Router, Redirect } from 'react-router-dom'
-import { initFirebase } from 'actions'
+//import { Route, BrowserRouter as Router, Redirect } from 'react-router-dom'
+import { initFirebase } from 'actions/index'
 import { setAuthStateListener, registerInitialListeners } from 'actions/listeners'
 
 import Login    from './login'
@@ -25,13 +26,9 @@ class Container extends PureComponent {
     if(isAuthenticating) return (<fb>authenticating...</fb>)
 
     return (
-      <Router>
         <fb className="Container_Main">
-          <Route path='/'   exact render={() => loggedIn ? <Redirect to="/app/" /> : <Redirect to="/login" /> } />
-          <Route path='/login'    render={() => loggedIn ? <Redirect to="/app/" /> : <Login /> } />
-          <Route path='/app'      render={() => loggedIn ? <App /> : <Redirect to="/login" /> } />
+          { loggedIn ? <App /> : <Login /> }
         </fb>
-      </Router>
     )
   }
 }
